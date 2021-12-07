@@ -1,0 +1,12 @@
+version: "3.4"
+services:
+  postgres:
+    image: postgres:13.4-alpine
+    environment:
+      - POSTGRES_USER=wad
+      - POSTGRES_PASSWORD=wad
+      - POSTGRES_DB=wadhw4
+    ports:
+      - 6432:5432
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
