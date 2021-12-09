@@ -10,10 +10,12 @@ GRANT ALL PRIVILEGES ON DATABASE wadhw4 TO wadhw4user;
 
 CREATE TABLE posts(
     id bigserial PRIMARY KEY,
-    body varchar
+    title varchar,
+    body varchar,
+    urllink varchar
 );
 -- TODO
-INSERT INTO posts(body) VALUES ('aaaaa');
+INSERT INTO posts(title, body, urllink) VALUES ('aaaaa', 'much aaaa', 'some.other.url');
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO wadhw4user;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO wadhw4user;
