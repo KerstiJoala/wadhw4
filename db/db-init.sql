@@ -12,10 +12,11 @@ CREATE TABLE posts(
     id bigserial PRIMARY KEY,
     title varchar,
     body varchar,
-    urllink varchar
+    urllink varchar,
+    likes numeric(10)
 );
 -- TODO
-INSERT INTO posts(title, body, urllink) VALUES ('aaaaa', 'much aaaa', 'some.other.url');
+INSERT INTO posts(title, body, urllink, likes) VALUES ('aaaaa', 'much aaaa', 'some.other.url', 0);
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO wadhw4user;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO wadhw4user;

@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(express.json());
 app.use(cors());
-app.use(express.static('Public'));
+app.use(express.static(__dirname + '../public'));
 app.listen(3000, () => {
     console.log("Server is listening to port 3000")
 });

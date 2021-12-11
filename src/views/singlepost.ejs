@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Single Post</title>
+    <%- include('./partials/head'); %>
+</head>
+<body>
+<%- include('./partials/header.ejs') %>
+<div class="singlepost">
+    <h2>
+        <%= posts.title %>
+    </h2>
+    <div class="content">
+        <p>
+            <%= posts.body %>
+        </p>
+    </div>
+    <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+    <br>
+        <p>
+            <%= posts.likes %>  
+        </p>
+    <a class="delete" data-del="<%= posts.id %>">Delete</a>
+</div>
+<script>
+    const delreq = document.querySelector('a.delete');
+    delreq.addEventListener('click', (e) => {
+        const endpoint = `/posts/${delreq.dataset.del}`;
+        fetch(endpoint, {
+            method: 'DELETE',
+        }).then(window.location.href = '/posts')
+    });
+    function myFunction(x) {
+        x.classList.toggle("fa-thumbs-down");
+    }
+</script>
+<%- include('./partials/footer.ejs') %>
+</body>
+</html>
