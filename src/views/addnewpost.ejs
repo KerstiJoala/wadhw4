@@ -3,12 +3,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=>, initial-scale=1.0">
 <title> Create a post</title>
-<%- include('./partials/head'); %>
 <body>
-<h1>Create a post</h1>
 <%- include('./partials/header.ejs') %>
 <br>
 <div class="create-post">
+    <h1>Create a post</h1>
+
     <form action="/posts" method="POST">
         <label for="title">Post title:</label>
         <input type="text" id="title" name="title" required><br><br>
@@ -22,3 +22,31 @@
 <%- include('./partials/footer.ejs') %>
 </body>
 </html>
+
+
+<style scoped>
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: rgb(145, 160, 193);
+    }
+    .create-post {
+        width: 60%;
+        margin-left: 20%;
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background-color: aliceblue;
+        padding-bottom: 40px;
+        border-radius: 4px;
+        box-shadow: 1px 1px 4px 1px;
+    }
+
+    .create-post h1{
+        padding-top: 40px;
+    }
+
+    .create-post button{
+        box-shadow: 1px 1px 3px 1px;
+        border-radius: 2px;
+    }
+    </style>

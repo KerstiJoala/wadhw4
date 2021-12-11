@@ -5,28 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <title>Posts</title>
-    <%- include('./partials/head'); %>
+
 </head>
 <body>
 <%- include('./partials/header.ejs') %>
-<div class="posts list">
-    <h2>All posts</h2>
+<div class="posts_list">
+    <h1>All posts</h1>
+    <div class="post">
     <% if (posts.length > 0) { %>
         <% posts.forEach(post => { %>
             <a class="singlepost" href="/singlepost/<%= post.id %>">
-                <h3 class="title">
+                <h2 class="title">
                     <%= post.title %>
-                </h3>
+                </h2>
                 <p class="body">
                     <%= post.body %>
                     <%= post.likes %>
                 </p>
+                <br>
             </a>
+            <br>
+            <div class="likediv">
+                <p> <% posts.likes %> likes  <button id="btn<%= post.id %>" onClick="myFunction(btn)">LIKE</button></p>
+                <hr> 
+            </div>
         <% }) %>
+    </div>
     <% } else { %>
         <p>You did not post anything...</p>
     <% } %>
+    
 </div>
+<br>
 <%- include('./partials/footer.ejs') %>
 </body>
 </html>
+
+<!--
+<script>
+    function myFunction(btn) {
+        document.getElementById(btn.id).disabled = true;
+        posts.likes++ ;
+      }
+</script>-->
+
+<style scoped>
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: rgb(145, 160, 193);
+    }
+    .posts_list {
+        width: 60%;
+        margin-left: 20%;
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background-color: aliceblue;
+        padding-bottom: 40px;
+        margin-bottom: 50px;
+        border-radius: 4px;
+        box-shadow: 1px 1px 4px 1px;
+    }
+    .post {
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 30%;
+        text-decoration: none;
+        background-color: white;
+    }
+
+    .post a{
+        text-decoration: none;
+        color: black;
+        font-weight: lighter;
+    }
+
+    .post h2{
+        padding-top: 20px;
+    }
+
+    .post hr{
+        height: 0.5px;
+        background-color: black;
+    }
+    
+    .posts_list h1{
+        padding-top: 40px;
+    }
+
+    .likediv button{
+        box-shadow: 1px 1px ;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    </style>
