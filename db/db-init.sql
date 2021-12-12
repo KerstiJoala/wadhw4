@@ -13,7 +13,7 @@ CREATE TABLE posts(
     title varchar,
     body varchar,
     urllink varchar,
-    likes numeric(10)
+    likes SMALLINT
 );
 -- TODO
 INSERT INTO posts(title, body, urllink, likes) VALUES ('aaaaa', 'much aaaa', 'some.other.url', 0);
